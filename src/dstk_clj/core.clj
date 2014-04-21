@@ -4,6 +4,7 @@
   (:use [ring.util.codec :only [url-encode]]))
 
 (defn api_url [endpoint]
+  ;(str "http://localhost:8080" endpoint))
   (str "http://www.datasciencetoolkit.org" endpoint))
 
 (defn prep-payload [data_payload data_payload_type]
@@ -49,13 +50,13 @@
 
 ;coordinages2politics
 ; FIXME - failing
-;(defn coordinates2politics [input]
-  ;(json/read-str
-    ;(:body
-      ;(call-dstk-api "/coordinates2politics" {} (str
-                                                    ;(first input)
-                                                    ;","
-                                                    ;(last input)) "json"))))
+(defn coordinates2politics [input]
+  (json/read-str
+    (:body
+      (call-dstk-api "/coordinates2politics" {} (str
+                                                    (first input)
+                                                    ","
+                                                    (last input)) "json"))))
 
 ; file2text
 (defn file2text [file]
@@ -101,13 +102,13 @@
 
 ; coordinates2statistics
 ; FIXME - failing
-;(defn coordinates2statistics [input]
-  ;(json/read-str
-    ;(:body
-      ;(call-dstk-api "/coordinates2statistics" {} (str
-                                                    ;(first input)
-                                                    ;","
-                                                    ;(last input)) "json"))))
+(defn coordinates2statistics [input]
+  (json/read-str
+    (:body
+      (call-dstk-api "/coordinates2statistics" {} (str
+                                                    (first input)
+                                                    ","
+                                                    (last input)) "json"))))
 
 ; twofishes
 (defn twofishes [text]
