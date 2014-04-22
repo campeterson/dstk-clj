@@ -12,6 +12,10 @@ Add the following dependency to your project.clj file:
 
     ["org.clojars.campeterson/dstk-clj" 0.0.1]
 
+    (require 'dstk-clj.core' :as 'dstk')
+
+    (dstk/text2places "Egypt")
+
 ## Status
 
 street2coordinates (OK)

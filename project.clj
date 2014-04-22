@@ -1,4 +1,4 @@
-(defproject org.clojars.campeterson/dstk-clj "0.0.1-SNAPSHOT"
+(defproject org.clojars.campeterson/dstk-clj "0.0.1"
   :description "Data Science Toolkit Clojure Wrapper"
   :url "https://github.com/campeterson/dstk-clj"
   :license {:name "Eclipse Public License"
