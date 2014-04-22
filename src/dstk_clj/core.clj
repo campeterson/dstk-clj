@@ -23,47 +23,49 @@
       {:body (prep-payload data_payload data_payload_type)})
     (client/get (api_url endpoint) {:query-params arguments})))
 
+;;;;;;;;;;;;;;;; Calls ;;;;;;;;;;;;;;;;;;;
 
-; text2places
+; street2coordinates
+(defn street2coordinates [addresses]
+  (json/read-str
+    (:body
+      (call-dstk-api "/street2coordinates" {} (to->vector addresses) "json"))))
+
+; geocode
+(defn geocode [input]
+  (json/read-str
+    (:body
+      (call-dstk-api "/maps/api/geocode/json" {"address" input}))))
+
+;coordinates2politics
+(defn coordinates2politics [coordinates]
+  (json/read-str
+    (:body
+      (call-dstk-api "/coordinates2politics" {} (to->vector coordinates) "json"))))
+
+; text2sentiment
+(defn text2sentiment [text]
+  (json/read-str
+    (:body
+      (call-dstk-api "/text2sentiment" {} text "string"))))
+
+; coordinates2statistics
+(defn coordinates2statistics [coordinates]
+  (json/read-str
+    (:body
+      (call-dstk-api "/coordinates2statistics" {} (to->vector coordinates) "json"))))
+
+; text2places (geodict)
 (defn text2places [input]
   (json/read-str
     (:body
       (call-dstk-api "/text2places" {} input "json"))))
 
 ; ip2coordinates
-(defn ip2coordinates [ips] ; passing!
+(defn ip2coordinates [ips]
   (json/read-str
     (:body
       (call-dstk-api "/ip2coordinates" {} (to->vector ips) "json"))))
-
-; street2coordinates
-(defn street2coordinates [addresses] ; passing!
-  (json/read-str
-    (:body
-      (call-dstk-api "/street2coordinates" {} (to->vector addresses) "json"))))
-
-; geocode
-(defn geocode [input] ; passing!
-  (json/read-str
-    (:body
-      (call-dstk-api "/maps/api/geocode/json" {"address" input}))))
-
-;coordinages2politics
-; fixme - failing
-(defn coordinates2politics [input]
-  (json/read-str
-    (:body
-      (call-dstk-api "/coordinates2politics" {} (str
-                                                    (first input)
-                                                    ","
-                                                    (last input)) "json"))))
-
-; file2text
-; fixme - not implemented yet
-(defn file2text [file]
-  (json/read-str
-    (:body
-      (call-dstk-api "/text2sentences" {} {"inputfile" file} "file"))))
 
 ; text2sentences
 (defn text2sentences [text] ; passing!
@@ -97,21 +99,12 @@
     (:body
       (call-dstk-api "/text2times" {} text "string"))))
 
-; text2sentiment
-(defn text2sentiment [text]
+; file2text
+; fixme - not implemented yet
+(defn file2text [file]
   (json/read-str
     (:body
-      (call-dstk-api "/text2sentiment" {} text "string"))))
-
-; coordinates2statistics
-; fixme - failing
-(defn coordinates2statistics [input]
-  (json/read-str
-    (:body
-      (call-dstk-api "/coordinates2statistics" {} (str
-                                                    (first input)
-                                                    ","
-                                                    (last input)) "json"))))
+      (call-dstk-api "/text2sentences" {} {"inputfile" file} "file"))))
 
 ; twofishes
 ; fixme server is giving 503 - service unavailable
