@@ -8,6 +8,9 @@ https://github.com/campeterson/dstk-clj
 
 ## Usage
 
+Add the following dependency to your project.clj file:
+
+    ["org.clojars.campeterson/dstk-clj" 0.0.1]
 
 ## Status
 
