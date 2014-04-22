@@ -2,6 +2,10 @@
 
 A Clojure wrapper for the Data Science Toolkit API
 
+http://www.dataciencetoolkit.org
+
+https://github.com/campeterson/dstk-clj
+
 ## Usage
 
 
