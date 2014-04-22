@@ -31,25 +31,25 @@
       (call-dstk-api "/text2places" {} input "json"))))
 
 ; ip2coordinates
-(defn ip2coordinates [ips] ; PASSING!
+(defn ip2coordinates [ips] ; passing!
   (json/read-str
     (:body
       (call-dstk-api "/ip2coordinates" {} (to->vector ips) "json"))))
 
 ; street2coordinates
-(defn street2coordinates [addresses] ; PASSING!
+(defn street2coordinates [addresses] ; passing!
   (json/read-str
     (:body
       (call-dstk-api "/street2coordinates" {} (to->vector addresses) "json"))))
 
 ; geocode
-(defn geocode [input] ; PASSING!
+(defn geocode [input] ; passing!
   (json/read-str
     (:body
       (call-dstk-api "/maps/api/geocode/json" {"address" input}))))
 
 ;coordinages2politics
-; FIXME - failing
+; fixme - failing
 (defn coordinates2politics [input]
   (json/read-str
     (:body
@@ -59,13 +59,14 @@
                                                     (last input)) "json"))))
 
 ; file2text
+; fixme - not implemented yet
 (defn file2text [file]
   (json/read-str
     (:body
       (call-dstk-api "/text2sentences" {} {"inputfile" file} "file"))))
 
 ; text2sentences
-(defn text2sentences [text] ; PASSING!
+(defn text2sentences [text] ; passing!
   (json/read-str
     (:body
       (call-dstk-api "/text2sentences" {} text "json"))))
@@ -77,16 +78,18 @@
       (call-dstk-api "/html2text" {} html "string"))))
 
 ; html2story
-(defn html2story [html]
-  (json/read-str
-    (:body
-      (call-dstk-api "/html2story" {} html "string"))))
+; fixme server not giving good response
+;(defn html2story [html]
+  ;(json/read-str
+    ;(:body
+      ;(call-dstk-api "/html2story" {} html "string"))))
 
 ; text2people
-(defn text2people [text]
-  (json/read-str
-    (:body
-      (call-dstk-api "/text2people" {} text "string"))))
+; fixme - needs better test
+;(defn text2people [text]
+  ;(json/read-str
+    ;(:body
+      ;(call-dstk-api "/text2people" {} text "string"))))
 
 ; text2times
 (defn text2times [text]
@@ -101,7 +104,7 @@
       (call-dstk-api "/text2sentiment" {} text "string"))))
 
 ; coordinates2statistics
-; FIXME - failing
+; fixme - failing
 (defn coordinates2statistics [input]
   (json/read-str
     (:body
@@ -111,7 +114,8 @@
                                                     (last input)) "json"))))
 
 ; twofishes
-(defn twofishes [text]
-  (json/read-str
-    (:body
-      (call-dstk-api "/twofishes" {"query" text}))))
+; fixme server is giving 503 - service unavailable
+;(defn twofishes [text]
+  ;(json/read-str
+    ;(:body
+      ;(call-dstk-api "/twofishes" {"query" text}))))
