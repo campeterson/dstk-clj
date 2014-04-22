@@ -8,9 +8,15 @@ https://github.com/campeterson/dstk-clj
 
 ## Usage
 
+### Try it out at the REPL
+
+    lein try dstk-clj 0.1.1
+
+### Use it in your project
+
 Add the following dependency to your project.clj file:
 
-    ["org.clojars.campeterson/dstk-clj" 0.0.1]
+    ["dstk-clj" 0.1.1]
 
     (require '[dstk-clj.core :as dstk])
 
@@ -19,18 +25,31 @@ Add the following dependency to your project.clj file:
 ## Status
 
 street2coordinates (OK)
+
 geocode (OK)
+
 coordinates2politics (OK)
+
 text2sentiment (OK)
+
 coordinates2statistics (OK)
+
 geodict (text2places) (OK)
+
 ip2coordinates (OK)
+
 text2sentences (OK)
+
 html2text (OK)
+
 html2story (FAILING - SERVER ISSUE)
+
 text2people (NOT YET IMPLEMENTED)
+
 text2times (OK)
+
 file2text (NOT YET IMPLEMENTED)
+
 twofishes (FAILING - SERVER ISSUE)
 
 ## Tests
